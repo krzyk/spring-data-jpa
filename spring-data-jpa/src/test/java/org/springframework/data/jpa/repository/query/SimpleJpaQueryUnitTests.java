@@ -147,7 +147,7 @@ class SimpleJpaQueryUnitTests {
 				queryMethod.getAnnotatedQuery(), null, QueryRewriter.IdentityQueryRewriter.INSTANCE,
 				EVALUATION_CONTEXT_PROVIDER);
 
-		assertThat(jpaQuery instanceof NativeJpaQuery).isTrue();
+		assertThat(jpaQuery).isInstanceOf(NativeJpaQuery.class);
 
 		when(em.createNativeQuery(anyString(), eq(User.class))).thenReturn(query);
 		when(metadata.getReturnedDomainClass(method)).thenReturn((Class) User.class);
@@ -190,14 +190,14 @@ class SimpleJpaQueryUnitTests {
 	void createsASimpleJpaQueryFromAnnotation() throws Exception {
 
 		RepositoryQuery query = createJpaQuery(SampleRepository.class.getMethod("findByAnnotatedQuery"));
-		assertThat(query instanceof SimpleJpaQuery).isTrue();
+		assertThat(query).isInstanceOf(SimpleJpaQuery.class);
 	}
 
 	@Test
 	void createsANativeJpaQueryFromAnnotation() throws Exception {
 
 		RepositoryQuery query = createJpaQuery(SampleRepository.class.getMethod("findNativeByLastname", String.class));
-		assertThat(query instanceof NativeJpaQuery).isTrue();
+		assertThat(query).isInstanceOf(NativeJpaQuery.class);
 	}
 
 	@Test // DATAJPA-757

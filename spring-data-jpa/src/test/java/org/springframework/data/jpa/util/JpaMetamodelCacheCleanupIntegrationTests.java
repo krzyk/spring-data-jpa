@@ -71,7 +71,7 @@ class JpaMetamodelCacheCleanupIntegrationTests {
 
 		String[] cleanupBeanNames = beanFactory.getBeanNamesForType(JpaMetamodelCacheCleanup.class);
 
-		assertThat(cleanupBeanNames.length).isEqualTo(1);
+		assertThat(cleanupBeanNames).hasSize(1);
 		assertThat(beanFactory.getBeanDefinition(cleanupBeanNames[0]).isLazyInit()).isFalse();
 	}
 }

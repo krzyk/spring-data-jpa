@@ -72,7 +72,7 @@ public class RepositoryWithIdClassKeyTests {
 				.findById(new ItemSiteId(new ItemId(item.getId(), item.getManufacturerId()), site.getId()));
 
 		assertThat(loaded).isNotNull();
-		assertThat(loaded.isPresent()).isTrue();
+		assertThat(loaded).isPresent();
 	}
 
 	@Configuration

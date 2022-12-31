@@ -46,7 +46,7 @@ public class SPR8954Tests {
 		Map<String, RepositoryFactoryInformation> repoFactories = context
 				.getBeansOfType(RepositoryFactoryInformation.class);
 
-		assertThat(repoFactories.size()).isGreaterThan(0);
+		assertThat(repoFactories).isNotEmpty();
 		assertThat(repoFactories.keySet()).contains("&userRepository");
 		assertThat(repoFactories.get("&userRepository")).isInstanceOf(JpaRepositoryFactoryBean.class);
 		assertThat(Arrays.asList(context.getBeanNamesForType(UserRepository.class))).contains("userRepository");

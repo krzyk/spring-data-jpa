@@ -103,7 +103,7 @@ public class EntityGraphRepositoryMethodsIntegrationTests {
 
 		List<User> result = repository.findAll();
 
-		assertThat(result.size()).isEqualTo(3);
+		assertThat(result).hasSize(3);
 		assertThat(util.isLoaded(result.get(0), "roles")).isTrue();
 		assertThat(result.get(0)).isEqualTo(tom);
 	}
@@ -177,7 +177,7 @@ public class EntityGraphRepositoryMethodsIntegrationTests {
 		Page<User> page = repository.findAll(QUser.user.firstname.isNotNull(), PageRequest.of(0, 100));
 		List<User> result = page.getContent();
 
-		assertThat(result.size()).isEqualTo(3);
+		assertThat(result).hasSize(3);
 		assertThat(util.isLoaded(result.get(0), "roles")).isTrue();
 		assertThat(result.get(0)).isEqualTo(tom);
 	}
@@ -197,7 +197,7 @@ public class EntityGraphRepositoryMethodsIntegrationTests {
 
 		List<User> result = page.getContent();
 
-		assertThat(result.size()).isEqualTo(3);
+		assertThat(result).hasSize(3);
 		assertThat(util.isLoaded(result.get(0), "roles")).isTrue();
 		assertThat(result.get(0)).isEqualTo(tom);
 	}

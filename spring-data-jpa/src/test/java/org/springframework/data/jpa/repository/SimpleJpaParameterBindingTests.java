@@ -71,7 +71,7 @@ class SimpleJpaParameterBindingTests {
 		query.setParameter(parameter, new String[] { "Dave", "Carter" });
 
 		List<User> result = query.getResultList();
-		assertThat(result.isEmpty()).isFalse();
+		assertThat(result).isNotEmpty();
 	}
 
 	@Test
@@ -94,7 +94,7 @@ class SimpleJpaParameterBindingTests {
 		query.setParameter(parameter, Arrays.asList("Dave"));
 
 		List<User> result = query.getResultList();
-		assertThat(result.isEmpty()).isFalse();
+		assertThat(result).isNotEmpty();
 		assertThat(result.get(0)).isEqualTo(user);
 	}
 }

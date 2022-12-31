@@ -79,7 +79,7 @@ class JpaPersistableEntityInformationUnitTests {
 
 		foo.id = 1L;
 		assertThat(entityInformation.isNew(foo)).isTrue();
-		assertThat(entityInformation.getId(foo)).isEqualTo(1L);
+		assertThat(entityInformation.getId(foo)).isOne();
 	}
 
 	@SuppressWarnings("serial")

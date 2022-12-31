@@ -222,7 +222,7 @@ public class QueryUtilsIntegrationTests {
 
 		QueryUtils.toExpressionRecursively(root, PropertyPath.from("manager", User.class));
 
-		assertThat(getNonInnerJoins(root)).hasSize(0);
+		assertThat(getNonInnerJoins(root)).isEmpty();
 	}
 
 	@Test // DATAJPA-401

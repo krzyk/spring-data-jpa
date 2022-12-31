@@ -46,7 +46,7 @@ class EntityManagerFactoryRefUnitTests {
 
 		BeanDefinition bean = factory.getBeanDefinition("userRepository");
 		Object value = getPropertyValue(bean, "entityManager");
-		assertThat(value instanceof RuntimeBeanNameReference).isTrue();
+		assertThat(value).isInstanceOf(RuntimeBeanNameReference.class);
 		BeanDefinition emCreator = (BeanDefinition) value;
 
 		BeanReference reference = getConstructorBeanReference(emCreator, 0);
@@ -61,7 +61,7 @@ class EntityManagerFactoryRefUnitTests {
 	private BeanReference getConstructorBeanReference(BeanDefinition definition, int index) {
 
 		Object value = definition.getConstructorArgumentValues().getIndexedArgumentValues().get(index).getValue();
-		assertThat(value instanceof BeanReference).isTrue();
+		assertThat(value).isInstanceOf(BeanReference.class);
 		return (BeanReference) value;
 	}
 }

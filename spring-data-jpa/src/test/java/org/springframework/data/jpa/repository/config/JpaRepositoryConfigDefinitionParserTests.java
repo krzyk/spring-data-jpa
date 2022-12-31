@@ -44,6 +44,6 @@ class JpaRepositoryConfigDefinitionParserTests {
 
 		PropertyValue transactionManager = definition.getPropertyValues().getPropertyValue("transactionManager");
 		assertThat(transactionManager).isNotNull();
-		assertThat(transactionManager.getValue().toString()).isEqualTo("transactionManager-2");
+		assertThat(transactionManager.getValue()).hasToString("transactionManager-2");
 	}
 }

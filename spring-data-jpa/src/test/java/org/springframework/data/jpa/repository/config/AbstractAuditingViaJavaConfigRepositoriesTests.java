@@ -123,8 +123,8 @@ public abstract class AbstractAuditingViaJavaConfigRepositoriesTests {
 		for (AuditableUser user : users) {
 
 			assertThat(user.getFirstname()).isEqualTo(user.getFirstname().toUpperCase());
-			assertThat(user.getLastModifiedBy()).isEqualTo(Optional.of(thomas));
-			assertThat(user.getLastModifiedDate()).isEqualTo(Optional.of(now));
+			assertThat(user.getLastModifiedBy()).contains(thomas);
+			assertThat(user.getLastModifiedDate()).contains(now);
 		}
 	}
 

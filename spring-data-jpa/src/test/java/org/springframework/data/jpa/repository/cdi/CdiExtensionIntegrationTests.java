@@ -83,7 +83,7 @@ class CdiExtensionIntegrationTests {
 	void returnOneFromCustomImpl() {
 
 		RepositoryConsumer repositoryConsumer = container.select(RepositoryConsumer.class).get();
-		assertThat(repositoryConsumer.returnOne()).isEqualTo(1);
+		assertThat(repositoryConsumer.returnOne()).isOne();
 	}
 
 	@Test // DATAJPA-584, DATAJPA-1180
@@ -97,6 +97,6 @@ class CdiExtensionIntegrationTests {
 	void useQualifiedFragmentUserRepo() {
 
 		RepositoryConsumer repositoryConsumer = container.select(RepositoryConsumer.class).get();
-		assertThat(repositoryConsumer.returnOneUserDB()).isEqualTo(1);
+		assertThat(repositoryConsumer.returnOneUserDB()).isOne();
 	}
 }

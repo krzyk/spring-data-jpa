@@ -75,7 +75,7 @@ public class PersistenceProviderIntegrationTests {
 				ProxyIdAccessor accessor = PersistenceProvider.fromEntityManager(em);
 
 				assertThat(accessor.shouldUseAccessorFor(product)).isTrue();
-				assertThat(accessor.getIdentifierFrom(product).toString()).isEqualTo((Object) product.getId().toString());
+				assertThat(accessor.getIdentifierFrom(product)).hasToString(product.getId().toString());
 
 				return null;
 			}

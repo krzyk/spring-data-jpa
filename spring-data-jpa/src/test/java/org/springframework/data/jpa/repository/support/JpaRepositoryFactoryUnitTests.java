@@ -118,7 +118,7 @@ public class JpaRepositoryFactoryUnitTests {
 		try {
 			factory.getRepository(SampleRepository.class);
 		} catch (IllegalArgumentException e) {
-			assertThat(e.getMessage().contains(SampleRepository.class.getName())).isTrue();
+			assertThat(e.getMessage()).contains(SampleRepository.class.getName());
 		}
 	}
 

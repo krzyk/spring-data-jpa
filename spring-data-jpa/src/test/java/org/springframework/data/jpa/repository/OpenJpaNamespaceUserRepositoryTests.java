@@ -78,7 +78,7 @@ class OpenJpaNamespaceUserRepositoryTests extends NamespaceUserRepositoryTests {
 		query.setParameter(parameter, Arrays.asList(1, 2));
 
 		List<User> resultList = query.getResultList();
-		assertThat(resultList.size()).isEqualTo(2);
+		assertThat(resultList).hasSize(2);
 	}
 
 	/**

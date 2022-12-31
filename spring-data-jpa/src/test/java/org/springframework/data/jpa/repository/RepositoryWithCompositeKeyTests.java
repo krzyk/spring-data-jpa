@@ -127,7 +127,7 @@ public class RepositoryWithCompositeKeyTests {
 		Page<IdClassExampleEmployee> page = employeeRepositoryWithIdClass.findAll(PageRequest.of(0, 1));
 
 		assertThat(page).isNotNull();
-		assertThat(page.getTotalElements()).isEqualTo(1L);
+		assertThat(page.getTotalElements()).isOne();
 	}
 
 	@Test // DATAJPA-2414

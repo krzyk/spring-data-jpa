@@ -192,7 +192,6 @@ class RepositoryIntegrationTests {
 
 		assertThat(revisions).hasSize(2);
 		assertThat(revisions.getLatestRevision().getEntity()) //
-				.isNotNull() //
 				.extracting(c -> c.name, c -> c.code) //
 				.containsExactly(null, null);
 	}

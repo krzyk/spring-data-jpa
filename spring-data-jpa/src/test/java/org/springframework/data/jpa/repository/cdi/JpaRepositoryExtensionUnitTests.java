@@ -48,7 +48,7 @@ class JpaRepositoryExtensionUnitTests {
 
 		Map<Set<Annotation>, Bean<EntityManager>> entityManagers = (Map<Set<Annotation>, Bean<EntityManager>>) ReflectionTestUtils
 				.getField(extension, "entityManagers");
-		assertThat(entityManagers.size()).isEqualTo(1);
+		assertThat(entityManagers).hasSize(1);
 		assertThat(entityManagers.values()).contains(em);
 	}
 

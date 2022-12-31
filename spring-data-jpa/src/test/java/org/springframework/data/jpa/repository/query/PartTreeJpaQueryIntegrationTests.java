@@ -120,7 +120,7 @@ public class PartTreeJpaQueryIntegrationTests {
 
 		Query query = jpaQuery.createQuery(getAccessor(queryMethod, new Object[] { "Matthews" }));
 
-		assertThat(query.getMaxResults()).isEqualTo(1);
+		assertThat(query.getMaxResults()).isOne();
 	}
 
 	@Test // DATAJPA-920

@@ -256,7 +256,6 @@ public class Jpa21UtilsTests {
 			Assertions.assertThat(attributeNode.getSubgraphs()) //
 					.describedAs(
 							String.format("Leaf properties %s could not be found; The node does not have any subgraphs", nodes)) //
-					.isNotNull() //
 					.isNotEmpty();
 
 			Subgraph<?> graph = attributeNode.getSubgraphs().values().iterator().next();
@@ -292,7 +291,6 @@ public class Jpa21UtilsTests {
 			Assertions.assertThat(attributeNode.getSubgraphs()) //
 					.describedAs(
 							String.format("Subgraphs %s could not be found; The node does not have any subgraphs", subgraphs)) //
-					.isNotNull() //
 					.isNotEmpty();
 
 			Subgraph<?> graph = attributeNode.getSubgraphs().values().iterator().next();
@@ -313,7 +311,7 @@ public class Jpa21UtilsTests {
 							attributeNode.getAttributeName());
 
 					softly.assertThat(node.getSubgraphs()) //
-							.describedAs(notSubGraph).isNotNull() //
+							.describedAs(notSubGraph) //
 							.isNotEmpty();
 				}
 			});

@@ -156,7 +156,7 @@ public class JpaQueryRewriteIntegrationTests {
 
 		assertThat(repository.count()).isEqualTo(3);
 		assertThat(repository.countDistinctByLastname("Baggins")).isEqualTo(2);
-		assertThat(repository.countDistinctByLastname("Gamgee")).isEqualTo(1);
+		assertThat(repository.countDistinctByLastname("Gamgee")).isOne();
 	}
 
 	public interface UserRepositoryWithRewriter

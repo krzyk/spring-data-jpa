@@ -70,11 +70,11 @@ public class QuerydslRepositorySupportTests {
 	void readsUsersCorrectly() {
 
 		List<User> result = repository.findUsersByLastname("Matthews");
-		assertThat(result.size()).isEqualTo(1);
+		assertThat(result).hasSize(1);
 		assertThat(result.get(0)).isEqualTo(dave);
 
 		result = repository.findUsersByLastname("Beauford");
-		assertThat(result.size()).isEqualTo(1);
+		assertThat(result).hasSize(1);
 		assertThat(result.get(0)).isEqualTo(carter);
 	}
 
@@ -85,13 +85,13 @@ public class QuerydslRepositorySupportTests {
 		assertThat(updates).isEqualTo(2L);
 
 		List<User> result = repository.findUsersByLastname("Matthews");
-		assertThat(result.size()).isEqualTo(0);
+		assertThat(result).isEmpty();
 
 		result = repository.findUsersByLastname("Beauford");
-		assertThat(result.size()).isEqualTo(0);
+		assertThat(result).isEmpty();
 
 		result = repository.findUsersByLastname("Foo");
-		assertThat(result.size()).isEqualTo(2);
+		assertThat(result).hasSize(2);
 		assertThat(result).contains(dave, carter);
 	}
 
@@ -99,13 +99,13 @@ public class QuerydslRepositorySupportTests {
 	void deletesAllWithLastnameCorrectly() {
 
 		long updates = repository.deleteAllWithLastname("Matthews");
-		assertThat(updates).isEqualTo(1L);
+		assertThat(updates).isOne();
 
 		List<User> result = repository.findUsersByLastname("Matthews");
-		assertThat(result.size()).isEqualTo(0);
+		assertThat(result).isEmpty();
 
 		result = repository.findUsersByLastname("Beauford");
-		assertThat(result.size()).isEqualTo(1);
+		assertThat(result).hasSize(1);
 		assertThat(result.get(0)).isEqualTo(carter);
 	}
 
